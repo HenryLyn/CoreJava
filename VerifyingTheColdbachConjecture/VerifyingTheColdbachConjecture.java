@@ -1,7 +1,7 @@
 /**
 *
 * @date 2017/06/09
-* @author Henry Lin
+* @author Henry
 * @description Verifying the Goldbach conjecture.
 * @version 0.0.1.20170609
 *
