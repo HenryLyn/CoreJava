@@ -1,1 +1,1 @@
-This is a core java exercises file.      --Henry Lyn
+This is a core java practice file.      --Henry Lyn
