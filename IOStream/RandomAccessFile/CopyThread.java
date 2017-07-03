@@ -16,6 +16,7 @@ public class CopyThread implements Runnable {
 	private String fileCurrentPath;
 	private String fileCopyPath;
 	private long beginPos;
+	private long endPos;
 
 	public CopyThread() {
 		super();
@@ -32,6 +33,7 @@ public class CopyThread implements Runnable {
 		this.fileCurrentPath = fileCurrentPath;
 		this.fileCopyPath = fileCopyPath;
 		this.beginPos = beginPos;
+		this.endPos = endPos;
 	}
 
 	/**
@@ -57,12 +59,19 @@ public class CopyThread implements Runnable {
 			read.seek(beginPos);
 			byte[] buf = new byte[BUFFER_SIZE];
 			int offset;
-			long corPos = beginPos;
-			while ((offset = read.read(buf)) != -1) {
-				if (!writeFile(corPos, buf, 0, buf.length)) {
+			long prePos = beginPos;
+			int len;
+			while (prePos < endPos) {
+				offset = read.read(buf);
+				if ((prePos + offset) < endPos) {
+					len = offset;
+				} else {
+					len = (int) (endPos - prePos);
+				}
+				if (!writeFile(prePos, buf, 0, len)) {
 					return false;
 				}
-				corPos += offset;
+				prePos = read.getFilePointer();
 			}
 			return true;
 		} catch (FileNotFoundException e) {
