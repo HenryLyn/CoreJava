@@ -7,7 +7,7 @@ public class Utils {
 
     /**
      * @author Henry
-     * @description: 
+     * @description: check if the input string can be parse to integer.
      * @param strInput:
      *              a string for checking.
      * @return boolean
@@ -26,4 +26,23 @@ public class Utils {
         return isInteger;
     }
     
+    /**
+     * @author Henry
+     * @description: Check if the year is leap year.
+     * @param year:
+     *              a integer of year.
+     * @return boolean
+     *              true: means the year is a leap year.
+     *              false: means the year is not a leap year.
+     * @version: 1.0.0.20170809
+     * */
+    public static boolean isLeapYear(int year){
+        boolean isLeapYear = false;
+        
+        if((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))){
+            isLeapYear = true;
+        }
+        
+        return isLeapYear;
+    }
 }
