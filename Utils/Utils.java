@@ -3,7 +3,7 @@ package com.henry.util;
 public class Utils {
     
     /* Follow variables for regular expression pattern. */
-    public static final String REGEX_INTEGER_PATTERN = "[0-9]+";
+    public static final String REGEX_INTEGER_PATTERN = "[-]?[0-9]+";
 
     /**
      * @author Henry
