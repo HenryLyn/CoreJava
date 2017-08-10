@@ -45,4 +45,25 @@ public class Utils {
         
         return isLeapYear;
     }
+    
+    /**
+     * @author Henry
+     * @description: Check if the number is odd.
+     * @param number:
+     *              a number for checking.
+     * @return boolean
+     *              true: means the number is odd.
+     *              false: means the number is not odd.
+     * @version: 1.0.0.20170810
+     * */
+    public static boolean isOddNumber(int number){
+        boolean isOddNumber = false;
+        
+        if(number % 2 != 0){
+            isOddNumber = true;
+        }
+        
+        return isOddNumber;
+    }
+    
 }
